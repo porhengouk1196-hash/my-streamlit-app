@@ -1,0 +1,129 @@
+/* ============================================================
+   Credit Risk Prediction — Banking Demo Theme
+   Palette matches the project's slide deck exactly:
+     Navy Blue   #0B1F3A  -> headers, primary text, sidebar bg
+     White       #FFFFFF  -> page background, result-card fill
+     Light Grey  #F5F6F8  -> card / section fill
+     Sky Blue    #2E86DE  -> single accent (borders, highlights)
+   No animations / transitions are used anywhere in this file.
+   ============================================================ */
+
+:root {
+    --navy: #0B1F3A;
+    --white: #FFFFFF;
+    --grey: #F5F6F8;
+    --accent: #2E86DE;
+    --border: #E0E3E7;
+    --text-muted: #5B6B7C;
+    /* Alert red — used ONLY to flag High risk results, so it stays a true
+       signal instead of just another decorative color. */
+    --alert: #C0392B;
+    --alert-bg: #FDECEA;
+}
+
+/* Overall app background — white, matching the deck's slide background */
+.stApp {
+    background-color: var(--white);
+}
+
+/* Remove Streamlit's default top padding for a tighter, professional look */
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 1100px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+}
+
+h1 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: var(--navy);
+    color: var(--white);
+    border: 1px solid var(--navy);
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+}
+.stButton > button:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+}
+
+/* Sliders — accent handle/track, matches deck highlight color */
+div[data-testid="stSlider"] div[role="slider"] {
+    background-color: var(--accent) !important;
+}
+div[data-baseweb="slider"] > div > div {
+    background: var(--accent) !important;
+}
+
+/* Generic content card */
+.card {
+    background-color: var(--grey);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Result cards on the Prediction page — visual weight escalates with risk,
+   using only navy / white / light grey / accent so the palette stays fixed. */
+.result-card {
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.result-card .label {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    opacity: 0.85;
+}
+.result-card .value {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.result-low {
+    background-color: var(--grey);
+    border: 1px solid var(--accent);
+}
+.result-low .label, .result-low .value { color: var(--navy); }
+
+.result-medium {
+    background-color: var(--white);
+    border: 2px solid var(--accent);
+}
+.result-medium .label, .result-medium .value { color: var(--navy); }
+
+.result-high {
+    background-color: var(--alert-bg);
+    border: 2px solid var(--alert);
+}
+.result-high .label, .result-high .value { color: var(--alert); }
+
+/* Section divider */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+}
+
+/* Muted caption text */
+.muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
